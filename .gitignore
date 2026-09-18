@@ -1,0 +1,24 @@
+# Secrets
+.env
+.env*.local
+
+# Python virtual environments & bytecode
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+
+# Vector store & local database
+chroma_db/
+
+# IDEs & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Testing & build caches
+.pytest_cache/
+*.egg-info/

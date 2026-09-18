@@ -1,0 +1,18 @@
+# Core Backend API
+fastapi>=0.115.0
+uvicorn>=0.30.0
+pydantic>=2.8.0
+
+# Frontend UI
+streamlit>=1.40.0
+requests>=2.32.0
+
+# Vector Database & Embeddings (RAG)
+chromadb>=0.5.0
+sentence-transformers>=3.0.0
+
+# AI / LLM Integration
+google-genai>=1.0.0
+
+# Utilities & Configuration
+python-dotenv>=1.0.0

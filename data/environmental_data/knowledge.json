@@ -1,0 +1,741 @@
+[
+  {
+    "id": "soc_001",
+    "topic": "soil organic carbon",
+    "category": "soil_health",
+    "environmental_variables": [
+      "soil_organic_carbon",
+      "soil_health",
+      "biodiversity",
+      "water_retention"
+    ],
+    "knowledge": "Soil organic carbon (SOC) is a key indicator of soil health. SOC levels below 1% are generally considered degraded. Healthy agricultural soils typically contain 2-6% SOC. Higher SOC improves soil structure, water-holding capacity, nutrient cycling, and supports microbial biodiversity. Some estimates suggest each 1% increase in SOC can meaningfully increase plant-available water, though the magnitude varies with soil texture. Declining SOC is associated with reduced crop yields, increased erosion, and loss of soil biota.",
+    "thresholds": {
+      "critical_low": 0.5,
+      "low": 1.0,
+      "moderate": 2.0,
+      "good": 3.0,
+      "excellent": 5.0,
+      "unit": "percent"
+    },
+    "interactions": {
+      "soil_ph": "SOC decomposition rates are affected by pH; strongly acidic or alkaline soils may slow organic matter turnover",
+      "soil_moisture": "Adequate moisture promotes microbial decomposition and SOC cycling; waterlogged conditions can preserve SOC through anaerobic conditions",
+      "temperature": "Higher temperatures generally accelerate SOC decomposition; tropical soils may have lower SOC than temperate soils under similar management",
+      "rainfall": "Excessive rainfall can cause leaching of dissolved organic carbon; moderate rainfall supports plant growth and SOC inputs"
+    },
+    "recommended_actions": [
+      {
+        "action": "Implement cover cropping with legume-grass mixtures",
+        "scientific_basis": "Cover crops add biomass and root exudates that feed soil microorganisms, increasing SOC through both above and below-ground organic inputs. Legumes fix atmospheric nitrogen through biological nitrogen fixation (BNF), reducing fertilizer needs.",
+        "metrics_affected": [
+          "soil_organic_carbon",
+          "soil_biodiversity",
+          "nitrogen_cycling",
+          "erosion_reduction"
+        ],
+        "time_horizon": "1-3 years for measurable SOC increase; 5+ years for significant improvement",
+        "confidence": "high",
+        "measurable_improvement": "Measurable SOC accumulation in topsoil over 3-5 years; legume cover crops supply biologically fixed nitrogen to the soil system, reducing inorganic fertilizer requirements (Lal 2004; Brady & Weil 2016)"
+      },
+      {
+        "action": "Adopt no-till or reduced tillage practices",
+        "scientific_basis": "Tillage disrupts soil aggregates and exposes protected organic matter to rapid oxidation. No-till preserves soil structure and maintains fungal hyphal networks. Some meta-analyses report modest SOC increases in the topsoil under no-till, though results vary by climate and soil type. No-till brings erosion rates substantially closer to natural soil formation rates compared to conventional plowing (Montgomery 2007).",
+        "metrics_affected": [
+          "soil_organic_carbon",
+          "soil_structure",
+          "soil_biodiversity",
+          "erosion_reduction"
+        ],
+        "time_horizon": "3-5 years for measurable SOC changes in topsoil",
+        "confidence": "high",
+        "measurable_improvement": "Measurable SOC accumulation in top 10 cm over 3-5 years; no-till substantially reduces soil erosion losses compared to conventional tillage by preserving aggregate stability and ground cover (Lal 2004; Montgomery 2007; USDA-NRCS)"
+      },
+      {
+        "action": "Apply compost or well-decomposed organic amendments at 5-10 tonnes/ha/year",
+        "scientific_basis": "External organic inputs directly add stable carbon to soil. Compost also introduces diverse microbial communities that enhance nutrient cycling and disease suppression.",
+        "metrics_affected": [
+          "soil_organic_carbon",
+          "nutrient_availability",
+          "soil_biodiversity",
+          "water_retention"
+        ],
+        "time_horizon": "1-2 years for noticeable improvement; ongoing application needed",
+        "confidence": "high",
+        "measurable_improvement": "Gradual SOC increase under continuous annual application in degraded soils, with improved cation exchange capacity and microbial biomass (Lal 2004; FAO GSOCmap)"
+      }
+    ],
+    "source": "FAO Global Soil Organic Carbon Map (GSOCmap) — fao.org/soils-portal; Lal, R. (2004) Soil carbon sequestration impacts on global climate change and food security, Science 304(5677):1623-1627; Brady, N.C. & Weil, R.R. (2016) The Nature and Properties of Soils, 15th Edition, Pearson; Montgomery, D.R. (2007) Soil erosion and agricultural sustainability, PNAS 104(33):13268-13272"
+  },
+  {
+    "id": "ph_001",
+    "topic": "soil pH and nutrient availability",
+    "category": "soil_health",
+    "environmental_variables": [
+      "soil_ph",
+      "nutrient_availability",
+      "soil_biodiversity",
+      "crop_productivity"
+    ],
+    "knowledge": "Soil pH affects nutrient solubility and biological activity. Most crops grow best at pH 6.0-7.0. Below pH 5.5, aluminum and manganese toxicity can occur, and phosphorus becomes less available. Above pH 8.0, iron, zinc, and manganese become less available. Soil microbial diversity is generally highest at near-neutral pH (6.5-7.5). Extreme pH values reduce earthworm populations and mycorrhizal colonization.",
+    "thresholds": {
+      "strongly_acidic": 4.5,
+      "acidic": 5.5,
+      "slightly_acidic": 6.0,
+      "neutral": 7.0,
+      "slightly_alkaline": 7.5,
+      "alkaline": 8.5,
+      "unit": "pH"
+    },
+    "interactions": {
+      "soil_organic_carbon": "Organic matter can buffer soil pH changes; adding organic amendments can gradually moderate extreme pH",
+      "rainfall": "High rainfall regions tend to have more acidic soils due to base cation leaching",
+      "land_use": "Continuous use of ammonium-based fertilizers can acidify soils over time"
+    },
+    "recommended_actions": [
+      {
+        "action": "Apply agricultural limestone or dolomitic lime to raise acidic soil pH",
+        "scientific_basis": "Lime neutralizes soil acidity by providing carbonate ions that react with hydrogen ions. This raises pH, reduces aluminum toxicity, and increases phosphorus availability. Application rates should be based on soil buffer capacity, not just current pH. The response magnitude and speed depend strongly on soil buffering capacity, lime particle size, and incorporation method.",
+        "metrics_affected": [
+          "soil_ph",
+          "nutrient_availability",
+          "aluminum_toxicity_reduction",
+          "microbial_activity"
+        ],
+        "time_horizon": "3-6 months for initial pH change; full effect in 1-2 years depending on particle size",
+        "confidence": "high",
+        "measurable_improvement": "Raises soil pH toward target range, reducing toxic exchangeable aluminum saturation below critical thresholds and improving phosphorus bioavailability; response is site-specific and depends on soil buffering capacity (Brady & Weil 2016; USDA-NRCS)"
+      },
+      {
+        "action": "Apply organic matter and compost to buffer pH extremes",
+        "scientific_basis": "Organic matter has high cation exchange capacity and acts as a natural pH buffer. Humic substances can complex with aluminum in acidic soils, reducing toxicity.",
+        "metrics_affected": [
+          "soil_ph",
+          "micronutrient_availability",
+          "iron_chlorosis_reduction"
+        ],
+        "time_horizon": "2-6 months for measurable pH reduction",
+        "confidence": "moderate",
+        "measurable_improvement": "Gradual pH buffering stabilization over 1-3 years through increased organic matter cation exchange capacity and aluminum chelation; effect depends on initial soil buffering capacity (Brady & Weil 2016)"
+      },
+      {
+        "action": "Apply elemental sulfur or acidifying amendments for alkaline soils",
+        "scientific_basis": "Elemental sulfur is oxidized by soil bacteria (Thiobacillus) to sulfuric acid, which lowers pH. This improves availability of iron, zinc, and manganese in non-calcareous alkaline soils. In calcareous soils, the buffering effect of free carbonates greatly limits acidification.",
+        "metrics_affected": [
+          "soil_ph_stability",
+          "nutrient_retention",
+          "soil_organic_carbon"
+        ],
+        "time_horizon": "1-3 years for meaningful buffering effect",
+        "confidence": "moderate",
+        "measurable_improvement": "pH reduction over 6-12 months in non-calcareous alkaline soils, restoring iron, zinc, and manganese bioavailability; effective only where free carbonates are absent (Brady & Weil 2016)"
+      }
+    ],
+    "source": "Brady, N.C. & Weil, R.R. (2016) The Nature and Properties of Soils, 15th Edition, Pearson; USDA-NRCS Soil Quality Indicators — nrcs.usda.gov"
+  },
+  {
+    "id": "moist_001",
+    "topic": "soil moisture and water management",
+    "category": "water",
+    "environmental_variables": [
+      "soil_moisture",
+      "water_retention",
+      "crop_productivity",
+      "soil_biodiversity"
+    ],
+    "knowledge": "Soil moisture is critical for plant growth, nutrient transport, and microbial activity. Optimal soil moisture for most crops is 50-75% of field capacity. Prolonged waterlogging (>48 hours) can cause root oxygen deprivation, denitrification, and methane emissions. Drought stress reduces photosynthesis, microbial activity, and can trigger irreversible soil structural damage (hydrophobicity). Soil moisture interacts strongly with soil texture: sandy soils drain quickly while clay soils retain more water but are prone to waterlogging.",
+    "thresholds": {
+      "wilting_point": 15,
+      "stress": 30,
+      "adequate": 50,
+      "optimal": 65,
+      "saturated": 100,
+      "unit": "percent_field_capacity"
+    },
+    "interactions": {
+      "soil_organic_carbon": "Higher SOC generally improves water-holding capacity, though the magnitude depends on soil texture and structure",
+      "temperature": "Higher temperatures increase evapotranspiration and soil moisture loss",
+      "rainfall": "Directly replenishes soil moisture; intensity matters—high-intensity rainfall can cause runoff rather than infiltration",
+      "land_use": "Tillage practices affect infiltration rates; compaction from heavy machinery reduces water movement"
+    },
+    "recommended_actions": [
+      {
+        "action": "Apply organic mulch to reduce soil evaporation",
+        "scientific_basis": "Mulch reduces soil surface temperature, decreases evaporation, suppresses weeds, and adds organic matter as it decomposes. Mulch interrupts Stage 1 evaporation by decoupling the soil surface from atmospheric demand. The magnitude varies with mulch type, thickness, and climate conditions.",
+        "metrics_affected": [
+          "soil_moisture",
+          "soil_temperature",
+          "weed_suppression",
+          "soil_organic_carbon"
+        ],
+        "time_horizon": "Immediate moisture conservation effect; organic matter contribution over 6-12 months",
+        "confidence": "high",
+        "measurable_improvement": "Meaningful reduction in non-productive soil surface evaporation, improving topsoil moisture retention during dry periods; effectiveness varies with mulch type and climatic conditions (Hillel 2003; FAO)"
+      },
+      {
+        "action": "Adopt high water-use-efficiency irrigation methods (e.g., drip irrigation)",
+        "scientific_basis": "Drip irrigation delivers water directly to the root zone, generally achieving higher application efficiency than flood or sprinkler irrigation. It also reduces waterlogging risk, fungal disease pressure, and weed growth between rows.",
+        "metrics_affected": [
+          "soil_moisture",
+          "water_use_efficiency",
+          "crop_yield",
+          "disease_reduction"
+        ],
+        "time_horizon": "Immediate improvement upon installation",
+        "confidence": "high",
+        "measurable_improvement": "30% to 50% water savings compared to flood irrigation, maintaining root-zone soil moisture within the 50-70% field capacity optimal range (FAO Irrigation Papers)"
+      },
+      {
+        "action": "Increase soil organic carbon to improve water retention capacity",
+        "scientific_basis": "Soil organic matter improves water infiltration and retention through aggregate stabilization and increased porosity. Well-structured soil with stable aggregates resists compaction that restricts root growth and water movement. The relationship between SOC and plant-available water holding capacity is positive but highly texture-dependent.",
+        "metrics_affected": [
+          "soil_moisture",
+          "infiltration_rate",
+          "root_depth",
+          "soil_biodiversity"
+        ],
+        "time_horizon": "1-3 years for structural improvement",
+        "confidence": "moderate",
+        "measurable_improvement": "Increasing SOC improves plant-available water holding capacity; the magnitude is texture-dependent and greatest in sandy soils (Brady & Weil 2016; Hillel 2003)"
+      }
+    ],
+    "source": "FAO Irrigation and Drainage Papers — fao.org/land-water; Hillel, D. (2003) Introduction to Environmental Soil Physics, Academic Press; Brady, N.C. & Weil, R.R. (2016) The Nature and Properties of Soils, 15th Edition, Pearson"
+  },
+  {
+    "id": "rain_001",
+    "topic": "rainfall patterns and water resources",
+    "category": "climate",
+    "environmental_variables": [
+      "rainfall",
+      "water_resources",
+      "erosion",
+      "flooding",
+      "groundwater"
+    ],
+    "knowledge": "Rainfall amount and distribution directly affect agricultural productivity, groundwater recharge, and ecosystem health. Annual rainfall below 500mm generally limits rainfed agriculture. Rainfall intensity matters as much as total amount: high-intensity events (>25mm/hour) cause surface runoff and erosion rather than soil infiltration. Climate change is shifting rainfall patterns, with many regions experiencing longer dry spells punctuated by more intense rainfall events. Rainfall variability affects biodiversity through changes in habitat moisture, stream flow, and wetland extent.",
+    "thresholds": {
+      "arid": 250,
+      "semi_arid": 500,
+      "sub_humid": 1000,
+      "humid": 2000,
+      "unit": "mm_per_year"
+    },
+    "interactions": {
+      "soil_moisture": "Rainfall is the primary input for soil moisture in rainfed systems",
+      "soil_organic_carbon": "Moderate rainfall supports plant biomass production and SOC accumulation; excessive rainfall leaches DOC",
+      "erosion": "Rainfall erosivity is a function of intensity and drop size; R-factor in USLE",
+      "temperature": "Combined with temperature determines evapotranspiration and net water balance"
+    },
+    "recommended_actions": [
+      {
+        "action": "Implement rainwater harvesting and farm pond storage",
+        "scientific_basis": "Capturing surface runoff in ponds and tanks during high-intensity rain events provides water storage for supplemental irrigation during dry spells. Effectiveness depends on catchment area, soil permeability, and pond design. FAO water harvesting manuals document meaningful runoff capture in dryland farming systems.",
+        "metrics_affected": [
+          "erosion_reduction",
+          "water_infiltration",
+          "groundwater_recharge",
+          "soil_retention"
+        ],
+        "time_horizon": "Immediate erosion reduction; groundwater benefits over 1-3 years",
+        "confidence": "high",
+        "measurable_improvement": "Captures a substantial fraction of field runoff during peak rain events, providing supplemental irrigation to bridge dry spells; capture efficiency depends on catchment design and rainfall intensity (FAO Land and Water)"
+      },
+      {
+        "action": "Construct contour bunds, swales, and terraces on slopes",
+        "scientific_basis": "Capturing runoff during high-intensity events provides supplemental irrigation during dry spells. A 1-hectare catchment receiving 500mm rainfall can theoretically capture 5,000 cubic meters of water. Contour bunds intercept overland flow, forcing infiltration and reducing erosive velocity.",
+        "metrics_affected": [
+          "water_availability",
+          "drought_resilience",
+          "groundwater_recharge"
+        ],
+        "time_horizon": "Immediate water capture; full system benefits in 1-2 seasons",
+        "confidence": "high",
+        "measurable_improvement": "Substantially reduces surface runoff velocity and increases local infiltration, groundwater recharge, and subsoil moisture retention across slopes; effectiveness depends on slope gradient, soil type, and spacing (FAO Land and Water)"
+      },
+      {
+        "action": "Diversify crop selection to match rainfall patterns and drought risk",
+        "scientific_basis": "Varieties bred for deep root systems, osmotic adjustment, and early maturity can maintain yields under water-limited conditions. Combined with soil moisture conservation, using drought-tolerant or appropriately-maturity varieties reduces crop failure risk during rainfall deficits.",
+        "metrics_affected": [
+          "crop_resilience",
+          "food_security",
+          "water_use_efficiency"
+        ],
+        "time_horizon": "Within 1 growing season for yield benefits",
+        "confidence": "moderate",
+        "measurable_improvement": "Reduces yield variability and crop failure risk under precipitation deficits; benefit magnitude is crop- and site-specific (IPCC AR6 WG2; FAO)"
+      }
+    ],
+    "source": "IPCC AR6 WG2 Chapter 4 (Water) — ipcc.ch; FAO Land and Water Division — fao.org/land-water"
+  },
+  {
+    "id": "temp_001",
+    "topic": "temperature effects on ecosystems",
+    "category": "climate",
+    "environmental_variables": [
+      "temperature",
+      "biodiversity",
+      "soil_processes",
+      "phenology",
+      "species_distribution"
+    ],
+    "knowledge": "Temperature governs metabolic rates, species distribution, and biogeochemical cycles. The Q10 principle suggests that a 10°C increase roughly doubles many biological reaction rates. Global average temperature has risen approximately 1.1°C since pre-industrial times (per IPCC AR6). Soil respiration increases with temperature, potentially releasing stored carbon. Growing seasons are generally expanding in temperate regions. Heat stress in crops becomes significant at high temperatures, with thresholds varying by crop species and growth stage.",
+    "thresholds": {
+      "frost_risk": 0,
+      "cold_stress": 5,
+      "optimal_temperate_crops": 20,
+      "heat_stress_onset": 35,
+      "severe_heat_stress": 40,
+      "unit": "celsius"
+    },
+    "interactions": {
+      "rainfall": "Temperature and rainfall together determine aridity index and biome type",
+      "soil_organic_carbon": "Higher temperatures accelerate SOC decomposition; Q10 of soil respiration is typically 2-3",
+      "biodiversity": "Temperature is a primary driver of species range shifts; warming pushes species poleward and upslope",
+      "soil_moisture": "Higher temperatures increase evapotranspiration, reducing soil moisture"
+    },
+    "recommended_actions": [
+      {
+        "action": "Integrate shade trees and agroforestry canopy cover",
+        "scientific_basis": "Tree canopies reduce understory temperature through shading and evapotranspiration, with the cooling effect varying by tree density and species. Agroforestry microclimate research documents meaningful reductions in peak daytime temperatures under canopy. This protects heat-sensitive crops and livestock, and provides habitat corridors for biodiversity.",
+        "metrics_affected": [
+          "temperature_moderation",
+          "crop_heat_stress",
+          "biodiversity_habitat",
+          "carbon_sequestration"
+        ],
+        "time_horizon": "3-5 years for meaningful canopy development; immediate benefit from fast-growing species",
+        "confidence": "high",
+        "measurable_improvement": "Tree canopy cover meaningfully reduces peak daytime soil surface and ambient microclimate temperatures, lowering thermal stress on crops and soil biota; cooling magnitude depends on canopy density and tree species (Lin 2007; IPCC AR6 WG2)"
+      },
+      {
+        "action": "Shift planting dates to avoid peak heat stress periods",
+        "scientific_basis": "Adjusting sowing dates so that critical reproductive stages (flowering, grain fill) do not coincide with the hottest period can help avoid significant yield losses from heat stress. The 35°C threshold is widely documented as critical for pollen viability in wheat and maize (Hatfield & Prueger 2015). The magnitude of benefit depends on the crop, local climate, and severity of heat events.",
+        "metrics_affected": [
+          "crop_yield",
+          "heat_stress_avoidance",
+          "water_use_efficiency"
+        ],
+        "time_horizon": "Within 1 growing season",
+        "confidence": "moderate",
+        "measurable_improvement": "Reduces flower abortion and yield losses by shifting anthesis away from temperatures exceeding the 35°C critical threshold; benefit is crop- and site-specific (Hatfield & Prueger 2015)"
+      },
+      {
+        "action": "Create wildlife corridors to enable species migration under climate change",
+        "scientific_basis": "Connected habitat patches allow species to shift ranges in response to warming. Corridors increase effective population sizes and gene flow, improving adaptive capacity.",
+        "metrics_affected": [
+          "biodiversity",
+          "species_connectivity",
+          "genetic_diversity",
+          "ecosystem_resilience"
+        ],
+        "time_horizon": "5-20 years for ecological connectivity benefits; corridor establishment in 2-5 years",
+        "confidence": "moderate",
+        "measurable_improvement": "Increases landscape connectivity and gene flow across fragmented patches, facilitating regional species climate range shifts (IPCC AR6 WG2)"
+      }
+    ],
+    "source": "IPCC AR6 WG2 Chapter 2 (Terrestrial and Freshwater Ecosystems) — ipcc.ch; Hatfield, J.L. & Prueger, J.H. (2015) Temperature extremes: Effect on plant growth and development, Weather and Climate Extremes 10:4-10; Lin, B.B. (2007) Agroforestry management as an adaptive strategy against potential microclimate extremes in coffee agriculture, Agricultural and Forest Meteorology 144(1-2):85-94"
+  },
+  {
+    "id": "bio_001",
+    "topic": "biodiversity indicators and ecosystem services",
+    "category": "biodiversity",
+    "environmental_variables": [
+      "biodiversity",
+      "species_richness",
+      "ecosystem_services",
+      "habitat_quality"
+    ],
+    "knowledge": "Biodiversity encompasses genetic, species, and ecosystem diversity. Key indicators include species richness, Shannon diversity index, functional diversity, and habitat connectivity. Higher biodiversity generally provides greater ecosystem resilience through functional redundancy. Pollinator diversity directly affects crop yields; the FAO estimates that approximately 75% of leading food crop types benefit from animal pollination. Soil biodiversity (bacteria, fungi, nematodes, earthworms) drives nutrient cycling, decomposition, and disease suppression. Loss of top predators can cascade through food webs, altering ecosystem structure.",
+    "thresholds": {
+      "shannon_low": 1.0,
+      "shannon_moderate": 2.0,
+      "shannon_high": 3.0,
+      "shannon_very_high": 4.0,
+      "unit": "shannon_index"
+    },
+    "interactions": {
+      "land_use": "Land use change is the primary driver of biodiversity loss; habitat conversion eliminates species",
+      "pollution": "Pesticides, fertilizer runoff, and industrial pollutants reduce biodiversity directly and through habitat degradation",
+      "temperature": "Climate change is altering species distributions and phenology, causing mismatches",
+      "soil_organic_carbon": "Soil biodiversity correlates positively with SOC content"
+    },
+    "recommended_actions": [
+      {
+        "action": "Establish native vegetation riparian buffer zones and conservation field margins along waterways and field boundaries",
+        "scientific_basis": "Buffer zones provide habitat for beneficial insects, birds, and small mammals. They filter agricultural runoff by trapping sediment and absorbing nutrients, reduce pesticide drift, and serve as movement corridors. Effectiveness varies with buffer width, vegetation type, and slope. USDA-NRCS Practice Standards (393 Filter Strips; 391 Riparian Forest Buffers) document sediment and nutrient trapping effectiveness.",
+        "metrics_affected": [
+          "biodiversity",
+          "water_quality",
+          "pollinator_habitat",
+          "pest_biocontrol"
+        ],
+        "time_horizon": "1-2 years for vegetation establishment; 3-5 years for full ecological function",
+        "confidence": "high",
+        "measurable_improvement": "Meaningfully increases beneficial pollinator and natural enemy abundance within 1-3 years; buffers trap sediment and agrochemical runoff according to USDA-NRCS conservation standards; specific abundance gains depend on local plant diversity and management context (IPBES 2019; USDA-NRCS)"
+      },
+      {
+        "action": "Implement Integrated Pest Management (IPM) to reduce pesticide use",
+        "scientific_basis": "IPM uses biological control, cultural practices, and targeted pesticide application only as last resort. This preserves natural enemy populations (predators, parasitoids) that provide significant natural pest control services.",
+        "metrics_affected": [
+          "biodiversity",
+          "pollinator_health",
+          "natural_enemy_conservation",
+          "pesticide_reduction"
+        ],
+        "time_horizon": "1-2 growing seasons for pest management transition; 2-5 years for full biological control establishment",
+        "confidence": "high",
+        "measurable_improvement": "Substantially reduces synthetic insecticide use while preserving predatory arthropod populations and maintaining crop yields; field studies across diverse cropping systems document dramatic pesticide input reductions under well-implemented IPM (IPBES 2019)"
+      },
+      {
+        "action": "Create or maintain wetland habitats within agricultural landscapes",
+        "scientific_basis": "Wetlands are biodiversity hotspots supporting amphibians, waterbirds, aquatic invertebrates, and specialized plants. They also provide water purification, flood attenuation, and disproportionately large carbon storage relative to their land area.",
+        "metrics_affected": [
+          "biodiversity",
+          "water_purification",
+          "flood_control",
+          "carbon_storage"
+        ],
+        "time_horizon": "2-5 years for wetland ecosystem establishment",
+        "confidence": "moderate",
+        "measurable_improvement": "Provides breeding and foraging habitat for aquatic and amphibian taxa, supporting measurable increases in local species richness and functional biodiversity within 2-5 years; wetland creation is a well-documented strategy for reversing freshwater biodiversity declines (IPBES 2019; MEA 2005)"
+      }
+    ],
+    "source": "IPBES (2019) Global Assessment Report on Biodiversity and Ecosystem Services — ipbes.net; Millennium Ecosystem Assessment (2005) — millenniumassessment.org; USDA-NRCS Practice Standards 391 & 393 — nrcs.usda.gov"
+  },
+  {
+    "id": "poll_001",
+    "topic": "pollution and environmental contamination",
+    "category": "pollution",
+    "environmental_variables": [
+      "pollution",
+      "water_quality",
+      "soil_contamination",
+      "biodiversity",
+      "human_health"
+    ],
+    "knowledge": "Environmental pollution from agricultural, industrial, and urban sources degrades ecosystems. Nitrogen pollution from fertilizer overuse causes eutrophication in water bodies, creating dead zones. Pesticide contamination affects non-target organisms including pollinators (e.g., neonicotinoids) and aquatic life. Heavy metal accumulation (Cd, Pb, As) in soils from industrial activities and contaminated irrigation water enters food chains. Plastic pollution is increasingly recognized in soils, with microplastics affecting soil structure and organisms. According to the planetary boundaries framework (Rockström et al., 2009), the nitrogen cycle boundary has been substantially exceeded.",
+    "thresholds": {
+      "nitrate_safe_drinking": 50,
+      "nitrate_ecological_risk": 10,
+      "phosphorus_eutrophication_risk": 0.02,
+      "unit": "mg_per_liter"
+    },
+    "interactions": {
+      "biodiversity": "Pollution is a direct driver of biodiversity loss through toxicity and habitat degradation",
+      "soil_health": "Contaminated soils have reduced microbial diversity and function",
+      "water_quality": "Agricultural runoff carries nutrients, pesticides, and sediment into water bodies",
+      "human_health": "Pollution enters food chains and drinking water, affecting human health"
+    },
+    "recommended_actions": [
+      {
+        "action": "Optimize fertilizer application using soil testing and precision agriculture",
+        "scientific_basis": "Matching fertilizer inputs to crop needs based on soil nutrient analysis prevents over-application. Precision agriculture technologies (variable rate application, NDVI-guided fertilization) can meaningfully reduce nitrogen use while maintaining yields, though the magnitude varies by system and crop.",
+        "metrics_affected": [
+          "nitrogen_pollution",
+          "water_quality",
+          "input_costs",
+          "greenhouse_gas_emissions"
+        ],
+        "time_horizon": "Immediate reduction in excess nutrient application",
+        "confidence": "high",
+        "measurable_improvement": "Meaningful reduction in surplus nitrogen and phosphorus inputs, decreasing groundwater nitrate leaching without crop yield penalty; typical reductions in precision agriculture pilots range from 20-40% in surplus inputs (UNEP GEO-6 2019)"
+      },
+      {
+        "action": "Construct wetland treatment systems for agricultural drainage",
+        "scientific_basis": "Constructed wetlands remove nitrogen and phosphorus from agricultural drainage through biological denitrification, plant uptake, and sedimentation. Removal efficiency varies widely depending on wetland design, hydraulic retention time, and influent concentration. Surface-flow and subsurface-flow systems show different performance profiles.",
+        "metrics_affected": [
+          "water_quality",
+          "nutrient_reduction",
+          "biodiversity_habitat",
+          "flood_attenuation"
+        ],
+        "time_horizon": "1-2 years for construction and vegetation establishment; treatment function begins immediately",
+        "confidence": "high",
+        "measurable_improvement": "Substantial removal of agricultural runoff nitrates and total phosphorus through biological denitrification and plant uptake; nitrogen removal in constructed wetlands commonly ranges from 40-80% and phosphorus removal from 30-60% depending on design and loading (UNEP GEO-6 2019; Kadlec & Wallace 2009)"
+      },
+      {
+        "action": "Implement bioremediation for contaminated soils",
+        "scientific_basis": "Certain plants (hyperaccumulators like Thlaspi caerulescens for zinc/cadmium) and microorganisms can extract or degrade contaminants. Phytoremediation is cost-effective for large, moderately contaminated areas compared to excavation.",
+        "metrics_affected": [
+          "soil_contamination",
+          "heavy_metal_reduction",
+          "soil_health_restoration"
+        ],
+        "time_horizon": "3-10 years depending on contamination level and contaminant type",
+        "confidence": "moderate",
+        "measurable_improvement": "Progressive extraction or stabilization of target contaminants over multi-year cycles; bioavailable heavy metal concentrations can be substantially reduced through phytoextraction with hyperaccumulator species, though timelines depend on contamination depth and species selection (UNEP GEO-6 2019)"
+      }
+    ],
+    "source": "UNEP (2019) Global Environment Outlook 6 — unep.org; Rockström et al. (2009) A safe operating space for humanity, Nature 461:472-475; Kadlec, R.H. & Wallace, S.D. (2009) Treatment Wetlands, 2nd Edition, CRC Press"
+  },
+  {
+    "id": "defor_001",
+    "topic": "deforestation and land degradation",
+    "category": "land_use",
+    "environmental_variables": [
+      "deforestation",
+      "land_use",
+      "biodiversity",
+      "carbon_storage",
+      "water_cycle"
+    ],
+    "knowledge": "According to the FAO Global Forest Resources Assessment 2020, deforestation removed approximately 10 million hectares of forest annually (2015-2020 average). Forests harbor a large share of terrestrial biodiversity. Forest loss reduces carbon storage, disrupts water cycles (tropical forests contribute significantly to regional rainfall through evapotranspiration), substantially increases soil erosion risk, and fragments habitats. Secondary effects include loss of forest-dependent livelihoods and cultural values. The IPCC reports that land degradation affects a significant fraction of Earth's terrestrial surface.",
+    "thresholds": {
+      "intact_forest_landscape_minimum": 500,
+      "fragment_viability_minimum": 100,
+      "corridor_width_minimum": 0.1,
+      "unit": "square_km_or_km"
+    },
+    "interactions": {
+      "biodiversity": "Deforestation is the leading cause of terrestrial biodiversity loss through habitat destruction and fragmentation",
+      "carbon_storage": "Forest clearing releases stored carbon; tropical deforestation is a significant contributor to global CO2 emissions",
+      "water_cycle": "Forests regulate local and regional water cycles; large-scale deforestation can reduce regional rainfall",
+      "soil_health": "Forest soils have high organic carbon and biodiversity that degrades rapidly after clearing"
+    },
+    "recommended_actions": [
+      {
+        "action": "Implement reforestation with native species on degraded lands",
+        "scientific_basis": "Native species reforestation restores habitat complexity, supports local wildlife, and rebuilds soil carbon stocks. Mixed-species plantations are more resilient than monocultures and provide multiple ecosystem services. Carbon sequestration rates vary greatly by climate, species, and site conditions.",
+        "metrics_affected": [
+          "forest_cover",
+          "biodiversity",
+          "carbon_sequestration",
+          "soil_restoration",
+          "water_regulation"
+        ],
+        "time_horizon": "5-10 years for canopy closure; 20-50 years for mature forest ecosystem",
+        "confidence": "high",
+        "measurable_improvement": "Accumulates carbon in aboveground biomass during establishment; rates vary widely by climate and species but are well-documented across tropical, temperate, and dryland systems. Forest canopy closure substantially reduces surface runoff and erosion (FAO 2020; IPCC AR6 WG3 Ch.7)"
+      },
+      {
+        "action": "Establish community-based forest management and monitoring",
+        "scientific_basis": "Communities with secure tenure and management rights over forests often achieve lower deforestation rates than unmanaged or strictly centralized areas. Research on indigenous and community-managed forests documents meaningfully lower annual deforestation rates in multiple countries and regions. Local monitoring can detect illegal logging early.",
+        "metrics_affected": [
+          "deforestation_rate",
+          "forest_governance",
+          "community_livelihoods"
+        ],
+        "time_horizon": "2-5 years for governance structures; ongoing forest protection",
+        "confidence": "moderate",
+        "measurable_improvement": "Documented lower annual deforestation rates in community- and indigenous-managed forests compared to unmanaged areas; evidence from multiple country studies supports this direction, though magnitudes vary (Blackman 2015; Ricketts et al. 2010)"
+      },
+      {
+        "action": "Adopt sustainable intensification on existing agricultural land to reduce pressure on forests",
+        "scientific_basis": "Increasing productivity on existing farmland through improved varieties, soil management, and efficient water use reduces the economic incentive to clear additional forest. Significant yield gaps exist in many tropical agricultural systems.",
+        "metrics_affected": [
+          "deforestation_reduction",
+          "crop_productivity",
+          "land_use_efficiency"
+        ],
+        "time_horizon": "1-3 growing seasons for yield improvements",
+        "confidence": "moderate",
+        "measurable_improvement": "Closing yield gaps on existing farmland reduces land pressure on adjacent native forests; yield improvements from improved management vary by system and region (IPCC AR6 WG3 Ch.7)"
+      }
+    ],
+    "source": "FAO (2020) Global Forest Resources Assessment — fao.org/forest-resources-assessment; IPCC AR6 WG3 Chapter 7 (AFOLU) — ipcc.ch; Blackman, A. (2015) Strict versus mixed-use protected areas, World Development 84:68-82; Ricketts, T.H. et al. (2010) Indigenous lands, protected areas, and slowing climate change, PNAS 107:16484-16488"
+  },
+  {
+    "id": "mono_001",
+    "topic": "crop monoculture and agricultural diversity",
+    "category": "land_use",
+    "environmental_variables": [
+      "land_use",
+      "biodiversity",
+      "habitat_diversity",
+      "pest_pressure",
+      "soil_health"
+    ],
+    "knowledge": "Continuous monoculture reduces habitat heterogeneity and below-ground biodiversity. Monocultures are more vulnerable to pest and disease outbreaks (Irish potato famine is a historical example). They deplete specific soil nutrients and can lead to allelopathic buildup. Crop diversity at landscape scale is associated with higher populations of natural pest enemies and pollinators. Globally, only 3 crops (rice, wheat, maize) provide >50% of plant-derived calories, representing significant food system vulnerability.",
+    "interactions": {
+      "biodiversity": "Monocultures support fewer species than diversified farming systems",
+      "soil_organic_carbon": "Continuous single-crop systems often have lower SOC than rotations including perennials or cover crops",
+      "pest_pressure": "Monocultures concentrate host resources for pests, increasing outbreak risk"
+    },
+    "recommended_actions": [
+      {
+        "action": "Introduce diverse crop rotations with at least 3-4 crops including a legume",
+        "scientific_basis": "Crop rotation breaks pest and disease cycles, improves soil nutrient balance through legume nitrogen fixation, and increases below-ground biodiversity. Multiple meta-analyses document yield benefits of diversified rotations over continuous monoculture.",
+        "metrics_affected": [
+          "biodiversity",
+          "soil_health",
+          "pest_reduction",
+          "yield_stability"
+        ],
+        "time_horizon": "Benefits begin in the first rotation cycle (1-2 years); cumulative benefits over 3-5 years",
+        "confidence": "high",
+        "measurable_improvement": "Diversified crop rotations improve multi-year yield stability, reduce soil-borne pathogen inoculum, and increase below-ground microbial diversity compared to continuous monoculture; magnitude of these benefits is documented in multiple field and meta-analysis studies (McDaniel et al. 2014; FAO)"
+      },
+      {
+        "action": "Implement intercropping or polyculture systems",
+        "scientific_basis": "Growing multiple crops simultaneously increases resource use efficiency through complementary use of light, water, and nutrients. Land Equivalent Ratio (LER) greater than 1.0 indicates that intercropping achieves more total yield per unit land than the same crops grown in separate monocultures. Intercropping also provides habitat diversity and reduces pest damage through associational resistance.",
+        "metrics_affected": [
+          "biodiversity",
+          "land_use_efficiency",
+          "pest_reduction",
+          "income_diversification"
+        ],
+        "time_horizon": "Within 1 growing season",
+        "confidence": "moderate",
+        "measurable_improvement": "Intercropping frequently achieves Land Equivalent Ratios greater than 1.0, demonstrating greater combined land-use productivity than separate monocultures; typical LER values in cereal-legume systems are documented in the agronomic literature (Mead & Willey 1980; Yu et al. 2016)"
+      },
+      {
+        "action": "Maintain non-crop habitat features (hedgerows, flowering strips, beetle banks)",
+        "scientific_basis": "Non-crop habitats in agricultural landscapes generally support substantially higher species diversity than crop fields alone. They provide refugia for beneficial insects, nesting sites for birds, and movement corridors for wildlife. Field studies document increased predator and parasitoid densities near non-crop habitat features.",
+        "metrics_affected": [
+          "biodiversity",
+          "pollinator_habitat",
+          "natural_pest_control",
+          "landscape_aesthetics"
+        ],
+        "time_horizon": "1-3 years for habitat establishment and colonization by target species",
+        "confidence": "high",
+        "measurable_improvement": "Non-crop habitat features support substantially higher beneficial predator and parasitoid insect densities in adjacent field zones, reducing pest crop damage; field studies report 2-4x higher natural enemy densities near habitat features, with associated pest suppression (Bianchi et al. 2006; Sirami et al. 2019)"
+      }
+    ],
+    "source": "FAO Biodiversity and sustainable agriculture — fao.org/biodiversity; Sirami et al. (2019) Increasing crop heterogeneity enhances multitrophic diversity across agricultural regions, PNAS 116(33):16442-16447; McDaniel, M.D. et al. (2014) Diversifying cropping systems supports yield stability, Ecological Applications 24(8):2007-2017; Mead, R. & Willey, R.W. (1980) The concept of a Land Equivalent Ratio, Experimental Agriculture 16:217-228; Yu, Y. et al. (2016) Malting barley intercropping with maize, Nature Plants 2:16152; Bianchi, F.J.J.A. et al. (2006) Sustainable pest regulation in agricultural landscapes, Ecology Letters 9(3):251-268"
+  },
+  {
+    "id": "agro_001",
+    "topic": "agroforestry systems",
+    "category": "land_use",
+    "environmental_variables": [
+      "land_use",
+      "soil_health",
+      "biodiversity",
+      "water_regulation",
+      "carbon_sequestration"
+    ],
+    "knowledge": "Agroforestry integrates trees with crops or livestock on the same land. Systems include alley cropping, silvopasture, windbreaks, and riparian buffers. Carbon sequestration potential varies widely by system, climate, and tree species. Tree roots access deep soil nutrients unavailable to crops, which are cycled back through leaf litter. Shade from trees can reduce heat stress on livestock, improving animal welfare and productivity. Agroforestry systems generally support higher bird and arthropod diversity than open agriculture.",
+    "interactions": {
+      "soil_organic_carbon": "Tree litter and root turnover significantly increase SOC, especially in deeper soil layers",
+      "biodiversity": "Trees add vertical habitat structure and food resources supporting diverse taxa",
+      "water_regulation": "Tree roots improve infiltration; transpiration and canopy interception regulate local water balance",
+      "temperature": "Tree canopy moderates microclimate extremes, reducing frost and heat damage"
+    },
+    "recommended_actions": [
+      {
+        "action": "Implement alley cropping with nitrogen-fixing trees (e.g., Leucaena, Gliricidia)",
+        "scientific_basis": "Alley cropping provides regular organic mulch from tree prunings, nitrogen fixation, and erosion control. Yields can match or exceed monoculture when tree spacing is optimized to minimize competition. Tropical nitrogen-fixing trees in alley cropping return biologically fixed nitrogen to the soil system through leaf litter decomposition.",
+        "metrics_affected": [
+          "soil_organic_carbon",
+          "nitrogen_cycling",
+          "biodiversity",
+          "erosion_control"
+        ],
+        "time_horizon": "2-3 years for trees to reach productive pruning size; ongoing benefits",
+        "confidence": "moderate",
+        "measurable_improvement": "Adds meaningful dry biomass per hectare per year through prunings, returning fixed nitrogen to soil organic pools while controlling slope erosion; documented in tropical alley cropping systems (Nair 2012; FAO Agroforestry)"
+      },
+      {
+        "action": "Establish windbreaks to reduce wind erosion and crop water stress",
+        "scientific_basis": "Windbreaks reduce wind speed over a downwind distance proportional to their height, which can substantially reduce evapotranspiration and wind erosion in the sheltered zone. They also provide habitat and microclimate benefits.",
+        "metrics_affected": [
+          "wind_erosion",
+          "water_use_efficiency",
+          "crop_yield",
+          "biodiversity_corridor"
+        ],
+        "time_horizon": "3-5 years for effective wind protection; habitat benefits develop over 5-10 years",
+        "confidence": "high",
+        "measurable_improvement": "Reduces downwind wind velocity by 30% to 60% over a distance of 10 to 20 times tree height, lowering crop evapotranspiration losses by 15% to 25% in the sheltered zone (Brandle et al. 2004; Nair 2012)"
+      }
+    ],
+    "source": "FAO Agroforestry — fao.org/agroforestry; Nair, P.K.R. (2012) Carbon sequestration studies in agroforestry systems, Agroforestry Systems 86:243-256; Brandle, J.R. et al. (2004) Windbreak practices, Agroforestry Systems 61-62:55-77"
+  },
+  {
+    "id": "wetland_001",
+    "topic": "wetland conservation and restoration",
+    "category": "biodiversity",
+    "environmental_variables": [
+      "biodiversity",
+      "water_quality",
+      "carbon_storage",
+      "flood_control",
+      "groundwater"
+    ],
+    "knowledge": "Wetlands cover a small fraction of Earth's land surface but provide disproportionate ecosystem services. They store a substantial share of global soil carbon relative to their area. Peatlands in particular are major carbon stores. Wetlands are among the most effective natural systems for water purification, removing nutrients, sediments, and pathogens. They support unique biodiversity, including many freshwater-dependent species. According to the Ramsar Convention's Global Wetland Outlook, significant wetland loss has occurred since 1970.",
+    "interactions": {
+      "water_quality": "Wetlands filter water by trapping sediment, absorbing nutrients, and breaking down pollutants",
+      "biodiversity": "Wetlands host specialized species assemblages including amphibians, waterbirds, fish, and aquatic invertebrates",
+      "carbon_storage": "Waterlogged conditions slow decomposition, accumulating organic carbon as peat",
+      "flooding": "Wetlands act as natural sponges, absorbing excess water during floods and releasing it slowly"
+    },
+    "recommended_actions": [
+      {
+        "action": "Protect existing wetlands through legal designation and conservation buffer zones",
+        "scientific_basis": "Preventing wetland drainage preserves carbon stocks. Draining peatlands triggers aerobic oxidation of stored organic carbon, releasing it as CO2. Published estimates of drained peatland emissions typically range from 10-30 tonnes CO2-equivalent/ha/year depending on drainage depth, climate, and land use. Wetland protection also maintains water purification and flood retention services.",
+        "metrics_affected": [
+          "wetland_area",
+          "carbon_storage",
+          "water_quality",
+          "biodiversity"
+        ],
+        "time_horizon": "Immediate protection of existing services",
+        "confidence": "high",
+        "measurable_improvement": "Avoids release of 10-30 tonnes CO2-equivalent/ha/year from peat/organic soil oxidation (range from published peatland literature) and preserves local flood retention capacity (Ramsar Global Wetland Outlook; Joosten & Clarke 2002)"
+      },
+      {
+        "action": "Restore degraded wetlands by re-establishing hydrology",
+        "scientific_basis": "Rewetting drained wetlands can restore water purification function within 2-5 years and begin carbon accumulation within 5-10 years. Biodiversity recovery takes longer but begins with rapid colonization by wetland-adapted species.",
+        "metrics_affected": [
+          "wetland_function",
+          "carbon_sequestration",
+          "water_quality",
+          "biodiversity_recovery"
+        ],
+        "time_horizon": "2-5 years for hydrological restoration; 10-20 years for ecosystem maturity",
+        "confidence": "moderate",
+        "measurable_improvement": "Substantially restores water purification and sediment-trapping function within 2-5 years, re-initiating peat carbon accumulation; restored wetlands and peatlands accumulate carbon at rates documented in the 0.5-2.5 tonnes C/ha/year range depending on peatland type and climate (Ramsar Global Wetland Outlook; Joosten & Clarke 2002; Davidson et al. 2018)"
+      }
+    ],
+    "source": "Ramsar Convention on Wetlands, Global Wetland Outlook — ramsar.org; Davidson, N.C. et al. (2018) Extent, regional distribution and changes in area of different classes of wetland, Marine and Freshwater Research 69(10):1525-1533; Joosten, H. & Clarke, D. (2002) Wise use of mires and peatlands, Ramsar Convention Technical Reports No. 1"
+  },
+  {
+    "id": "erosion_001",
+    "topic": "soil erosion and conservation",
+    "category": "soil_health",
+    "environmental_variables": [
+      "erosion",
+      "soil_health",
+      "water_quality",
+      "crop_productivity",
+      "land_degradation"
+    ],
+    "knowledge": "Soil erosion removes the most fertile topsoil layer, reducing productivity. Natural soil formation is very slow, making soil effectively non-renewable on human timescales when erosion rates exceed formation rates. Erosion on degraded agricultural land can far exceed natural formation rates. Erosion also transports nutrients and pesticides into water bodies, causing downstream pollution. Wind erosion is dominant in arid regions, while water erosion dominates on humid slopes.",
+    "interactions": {
+      "rainfall": "Rainfall intensity and amount drive water erosion; erosivity increases exponentially with intensity",
+      "soil_organic_carbon": "Eroded soil loses organic carbon preferentially from the light fraction; severe erosion can substantially deplete SOC",
+      "land_use": "Bare soil is most vulnerable; permanent vegetation cover greatly reduces erosion risk",
+      "biodiversity": "Erosion destroys soil habitat and reduces biological activity in remaining soil"
+    },
+    "recommended_actions": [
+      {
+        "action": "Maintain permanent ground cover through cover crops, mulch, or perennial vegetation",
+        "scientific_basis": "Ground cover absorbs raindrop impact energy, slows surface runoff, and maintains soil structure. Even partial ground cover can substantially reduce erosion rates compared to bare soil.",
+        "metrics_affected": [
+          "erosion_reduction",
+          "soil_conservation",
+          "soil_organic_carbon",
+          "water_quality"
+        ],
+        "time_horizon": "Immediate protection once cover is established",
+        "confidence": "high",
+        "measurable_improvement": "Reduces water and wind erosion rates by 70% to 95% compared to clean-tilled bare soil, keeping soil loss below tolerable soil loss (T) limits of 2-5 tonnes/ha/year (Montgomery 2007; USDA-NRCS)"
+      },
+      {
+        "action": "Install contour farming and grass waterways on sloped land",
+        "scientific_basis": "Farming along contour lines can substantially reduce rill erosion. Grass waterways in natural drainage paths reduce gully formation and filter sediment from concentrated flow.",
+        "metrics_affected": [
+          "erosion_reduction",
+          "water_infiltration",
+          "gully_prevention",
+          "water_quality"
+        ],
+        "time_horizon": "Immediate effect upon implementation; grass establishment in 1-2 seasons",
+        "confidence": "high",
+        "measurable_improvement": "Reduces rill erosion on slopes by 40% to 60% and filters out 60% to 80% of suspended sediment before concentrated runoff reaches streams (Montgomery 2007; USDA-NRCS)"
+      }
+    ],
+    "source": "Montgomery, D.R. (2007) Soil erosion and agricultural sustainability, PNAS 104(33):13268-13272; USDA-NRCS Conservation Practice Standards — nrcs.usda.gov"
+  }
+]
