@@ -17,8 +17,10 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/free")
 OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
 
-# Embedding model (lightweight ChromaDB ONNX default, low-memory for 512 MB instances)
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+# Embedding model (remote Google Gemini API, zero local ML model weights in RAM)
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "gemini-embedding-001")
+EMBEDDING_DIMENSION = int(os.getenv("EMBEDDING_DIMENSION", "768"))
+PRECOMPUTED_EMBEDDINGS_PATH = str(_project_root / "data" / "environmental_data" / "precomputed_embeddings.json")
 
 # ChromaDB settings
 CHROMA_COLLECTION_NAME = "environmental_knowledge"

@@ -3,9 +3,16 @@ RAG retriever: manages ChromaDB vector store and performs similarity search
 for relevant environmental knowledge.
 """
 
+import json
+from pathlib import Path
+
 import chromadb
 from chromadb.config import Settings as ChromaSettings
-from src.config import CHROMA_COLLECTION_NAME, CHROMA_PERSIST_DIR
+from src.config import (
+    CHROMA_COLLECTION_NAME,
+    CHROMA_PERSIST_DIR,
+    PRECOMPUTED_EMBEDDINGS_PATH,
+)
 from src.embeddings import create_embedding, create_embeddings_batch, get_embedding_function
 from src.knowledge_base import load_knowledge_base, prepare_documents_for_vectordb
 
@@ -19,20 +26,48 @@ class EnvironmentalRetriever:
             settings=ChromaSettings(anonymized_telemetry=False),
         )
         self._ef = get_embedding_function()
-        self._collection = self._client.get_or_create_collection(
-            name=CHROMA_COLLECTION_NAME,
-            metadata={"hnsw:space": "cosine"},
-            embedding_function=self._ef,
-        )
+        try:
+            self._collection = self._client.get_or_create_collection(
+                name=CHROMA_COLLECTION_NAME,
+                metadata={"hnsw:space": "cosine"},
+                embedding_function=self._ef,
+            )
+        except ValueError as e:
+            if "conflict" in str(e).lower() or "embedding function" in str(e).lower():
+                print(f"[Retriever] Existing collection embedding conflict detected; resetting collection for new embedding function...")
+                self._client.delete_collection(CHROMA_COLLECTION_NAME)
+                self._collection = self._client.get_or_create_collection(
+                    name=CHROMA_COLLECTION_NAME,
+                    metadata={"hnsw:space": "cosine"},
+                    embedding_function=self._ef,
+                )
+            else:
+                raise
         # Ingest knowledge if the collection is empty
         if self._collection.count() == 0:
             self._ingest_knowledge()
 
     def _ingest_knowledge(self):
-        """Load knowledge base and ingest into ChromaDB."""
+        """Load knowledge base and ingest into ChromaDB, utilizing precomputed embeddings if available."""
         knowledge = load_knowledge_base()
         documents, metadatas, ids = prepare_documents_for_vectordb(knowledge)
-        embeddings = create_embeddings_batch(documents)
+
+        # Check for precomputed embeddings cache to prevent remote API calls on startup
+        embeddings = None
+        cache_path = Path(PRECOMPUTED_EMBEDDINGS_PATH)
+        if cache_path.exists():
+            try:
+                with open(cache_path, "r", encoding="utf-8") as f:
+                    cache = json.load(f)
+                if cache.get("ids") == ids and len(cache.get("embeddings", [])) == len(ids):
+                    embeddings = cache["embeddings"]
+                    print(f"[Retriever] Loaded {len(embeddings)} precomputed embeddings from cache.")
+            except Exception as e:
+                print(f"[Retriever] Warning: could not load precomputed embedding cache: {e}")
+
+        if embeddings is None:
+            print(f"[Retriever] Precomputed cache not found or mismatched; generating {len(documents)} embeddings via Gemini API...")
+            embeddings = create_embeddings_batch(documents)
 
         # ChromaDB has batch size limits; add in chunks
         batch_size = 40

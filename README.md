@@ -85,7 +85,7 @@ darukaa-biodiversity-ai/
 ├── src/
 │   ├── __init__.py
 │   ├── config.py                     # Configuration & env variables
-│   ├── embeddings.py                 # Lightweight ChromaDB ONNX embeddings
+│   ├── embeddings.py                 # Remote Gemini embedding API (zero local model in RAM)
 │   ├── knowledge_base.py             # JSON knowledge loader & document prep
 │   ├── retriever.py                  # ChromaDB vector store & RAG retrieval
 │   ├── reasoning.py                  # Multi-metric reasoning engine
@@ -109,8 +109,8 @@ The platform employs a hybrid data architecture consisting of a persistent vecto
 - **Collection Name**: `environmental_knowledge`
 - **Persistence Directory**: `chroma_db/` (persisted locally on disk)
 - **Distance Metric**: Cosine distance (`hnsw:space: "cosine"`)
-- **Embedding Model**: `all-MiniLM-L6-v2` via ChromaDB ONNX runtime (lightweight, optimized for 512 MB instances)
-- **Vector Dimension**: 384 dimensions (dense float32 vectors)
+- **Embedding Model**: `gemini-embedding-001` via Google GenAI remote API (precomputed offline into `data/environmental_data/precomputed_embeddings.json`, zero local ML model in RAM)
+- **Vector Dimension**: 768 dimensions (dense float32 vectors)
 
 #### Vector Document Types
 During document ingestion (`src/knowledge_base.py`), each knowledge topic is partitioned into three specialized document chunk types:
@@ -376,7 +376,7 @@ curl -X POST http://localhost:8000/chat \
 - **No real-time data**: Does not connect to live environmental monitoring systems.
 - **Single-user sessions**: Conversation state is stored in memory; restarting the backend clears all conversations.
 - **No authentication**: The API is open. Add authentication for production use.
-- **Embedding model**: Uses `all-MiniLM-L6-v2` via ONNX runtime (lightweight and optimized for 512 MB instances).
+- **Embedding model**: Uses Google Gemini's `gemini-embedding-001` (768-dim) remote API, with precomputed offline embeddings ensuring zero local model memory overhead.
 - **Gemini rate limits**: Subject to Google Gemini API rate limits and quotas.
 
 ## Extending the Knowledge Base

@@ -1,26 +1,36 @@
 """
-Lightweight embedding module using ChromaDB's built-in ONNX embedding function.
-Runs all-MiniLM-L6-v2 directly via onnxruntime without loading PyTorch or sentence-transformers,
-substantially reducing memory footprint for low-memory environments (e.g. Render 512 MB).
+Remote embedding module using Google Gemini's embedding API via google-genai SDK.
+Zero local ML model weights are loaded into RAM (avoiding PyTorch and ONNX memory overhead),
+enabling effortless deployment on constrained platforms like Render's 512 MB free tier.
 """
 
-from chromadb.utils.embedding_functions import DefaultEmbeddingFunction
+import os
+from chromadb.utils.embedding_functions import GoogleGenaiEmbeddingFunction
+from src.config import EMBEDDING_MODEL, EMBEDDING_DIMENSION, GOOGLE_API_KEY
 
 # Singleton embedding function instance
 _embedding_function = None
 
 
-def get_embedding_function() -> DefaultEmbeddingFunction:
-    """Return the singleton ChromaDB default ONNX embedding function."""
+def get_embedding_function() -> GoogleGenaiEmbeddingFunction:
+    """Return the singleton ChromaDB Google GenAI embedding function."""
     global _embedding_function
     if _embedding_function is None:
-        _embedding_function = DefaultEmbeddingFunction()
+        api_key = GOOGLE_API_KEY or os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("GOOGLE_API_KEY or GEMINI_API_KEY environment variable is required.")
+
+        _embedding_function = GoogleGenaiEmbeddingFunction(
+            model_name=EMBEDDING_MODEL,
+            dimension=EMBEDDING_DIMENSION,
+            api_key_env_var="GOOGLE_API_KEY" if (GOOGLE_API_KEY or os.getenv("GOOGLE_API_KEY")) else "GEMINI_API_KEY",
+        )
     return _embedding_function
 
 
 def create_embedding(text: str) -> list[float]:
     """
-    Convert text into a numerical vector using Chroma's lightweight default ONNX embedding function.
+    Convert text into a numerical vector using Google's remote Gemini embedding API.
     """
     ef = get_embedding_function()
     vec = ef([text])[0]
@@ -29,7 +39,7 @@ def create_embedding(text: str) -> list[float]:
 
 def create_embeddings_batch(texts: list[str]) -> list[list[float]]:
     """
-    Convert a batch of texts into numerical vectors using Chroma's lightweight default ONNX embedding function.
+    Convert a batch of texts into numerical vectors using Google's remote Gemini embedding API.
     """
     if not texts:
         return []
