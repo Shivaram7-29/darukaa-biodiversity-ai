@@ -114,7 +114,7 @@
           "micronutrient_availability",
           "iron_chlorosis_reduction"
         ],
-        "time_horizon": "2-6 months for measurable pH reduction",
+        "time_horizon": "1-3 years for gradual pH buffering stabilization; ongoing application needed",
         "confidence": "moderate",
         "measurable_improvement": "Gradual pH buffering stabilization over 1-3 years through increased organic matter cation exchange capacity and aluminum chelation; effect depends on initial soil buffering capacity (Brady & Weil 2016)"
       },
@@ -126,7 +126,7 @@
           "nutrient_retention",
           "soil_organic_carbon"
         ],
-        "time_horizon": "1-3 years for meaningful buffering effect",
+        "time_horizon": "6-12 months for initial pH reduction; 1-3 years for stabilization",
         "confidence": "moderate",
         "measurable_improvement": "pH reduction over 6-12 months in non-calcareous alkaline soils, restoring iron, zinc, and manganese bioavailability; effective only where free carbonates are absent (Brady & Weil 2016)"
       }
