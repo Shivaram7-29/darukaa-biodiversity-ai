@@ -29,7 +29,7 @@ class EnvironmentalInput:
 THRESHOLDS = {
     "soil_organic_carbon": {"critical": 0.5, "low": 1.0, "moderate": 2.0, "good": 3.0},
     "soil_ph": {"strongly_acidic": 4.5, "acidic": 5.5, "optimal_low": 6.0, "optimal_high": 7.0, "alkaline": 8.5},
-    "soil_moisture": {"wilting": 15, "stress": 30, "adequate": 50, "optimal": 65},
+    "soil_moisture": {"wilting": 15, "stress": 30},
     "temperature": {"frost": 0, "cold_stress": 5, "heat_stress": 35, "severe_heat": 40},
     "rainfall": {"arid": 250, "semi_arid": 500, "sub_humid": 1000},
     "biodiversity_index": {"low": 1.0, "moderate": 2.0, "high": 3.0},

@@ -143,12 +143,10 @@
       "crop_productivity",
       "soil_biodiversity"
     ],
-    "knowledge": "Soil moisture is critical for plant growth, nutrient transport, and microbial activity. Optimal soil moisture for most crops is 50-75% of field capacity. Prolonged waterlogging (>48 hours) can cause root oxygen deprivation, denitrification, and methane emissions. Drought stress reduces photosynthesis, microbial activity, and can trigger irreversible soil structural damage (hydrophobicity). Soil moisture interacts strongly with soil texture: sandy soils drain quickly while clay soils retain more water but are prone to waterlogging.",
+    "knowledge": "Soil moisture is critical for plant growth, nutrient transport, and microbial activity. Adequate soil moisture is critical for sustaining crop growth and root-zone water availability while avoiding drought stress and waterlogging. Prolonged waterlogging (>48 hours) can cause root oxygen deprivation, denitrification, and methane emissions. Drought stress reduces photosynthesis, microbial activity, and can trigger irreversible soil structural damage (hydrophobicity). Soil moisture interacts strongly with soil texture: sandy soils drain quickly while clay soils retain more water but are prone to waterlogging.",
     "thresholds": {
       "wilting_point": 15,
       "stress": 30,
-      "adequate": 50,
-      "optimal": 65,
       "saturated": 100,
       "unit": "percent_field_capacity"
     },
@@ -183,7 +181,7 @@
         ],
         "time_horizon": "Immediate improvement upon installation",
         "confidence": "high",
-        "measurable_improvement": "30% to 50% water savings compared to flood irrigation, maintaining root-zone soil moisture within the 50-70% field capacity optimal range (FAO Irrigation Papers)"
+        "measurable_improvement": "30% to 50% water savings compared to flood irrigation, improving root-zone moisture and plant-available water (FAO Irrigation Papers)"
       },
       {
         "action": "Increase soil organic carbon to improve water retention capacity",
