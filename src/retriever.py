@@ -6,7 +6,7 @@ for relevant environmental knowledge.
 import chromadb
 from chromadb.config import Settings as ChromaSettings
 from src.config import CHROMA_COLLECTION_NAME, CHROMA_PERSIST_DIR
-from src.embeddings import create_embedding, create_embeddings_batch
+from src.embeddings import create_embedding, create_embeddings_batch, get_embedding_function
 from src.knowledge_base import load_knowledge_base, prepare_documents_for_vectordb
 
 
@@ -18,9 +18,11 @@ class EnvironmentalRetriever:
             path=CHROMA_PERSIST_DIR,
             settings=ChromaSettings(anonymized_telemetry=False),
         )
+        self._ef = get_embedding_function()
         self._collection = self._client.get_or_create_collection(
             name=CHROMA_COLLECTION_NAME,
             metadata={"hnsw:space": "cosine"},
+            embedding_function=self._ef,
         )
         # Ingest knowledge if the collection is empty
         if self._collection.count() == 0:
@@ -101,5 +103,6 @@ class EnvironmentalRetriever:
         self._collection = self._client.get_or_create_collection(
             name=CHROMA_COLLECTION_NAME,
             metadata={"hnsw:space": "cosine"},
+            embedding_function=self._ef,
         )
         self._ingest_knowledge()

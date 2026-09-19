@@ -7,9 +7,9 @@ pydantic>=2.8.0
 streamlit>=1.40.0
 requests>=2.32.0
 
-# Vector Database & Embeddings (RAG)
+# Vector Database & Embeddings (RAG - Lightweight ONNX runtime)
 chromadb>=0.5.0
-sentence-transformers>=3.0.0
+onnxruntime>=1.18.0
 
 # AI / LLM Integration
 google-genai>=1.0.0

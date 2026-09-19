@@ -85,7 +85,7 @@ darukaa-biodiversity-ai/
 ├── src/
 │   ├── __init__.py
 │   ├── config.py                     # Configuration & env variables
-│   ├── embeddings.py                 # Sentence-transformers embeddings
+│   ├── embeddings.py                 # Lightweight ChromaDB ONNX embeddings
 │   ├── knowledge_base.py             # JSON knowledge loader & document prep
 │   ├── retriever.py                  # ChromaDB vector store & RAG retrieval
 │   ├── reasoning.py                  # Multi-metric reasoning engine
@@ -109,7 +109,7 @@ The platform employs a hybrid data architecture consisting of a persistent vecto
 - **Collection Name**: `environmental_knowledge`
 - **Persistence Directory**: `chroma_db/` (persisted locally on disk)
 - **Distance Metric**: Cosine distance (`hnsw:space: "cosine"`)
-- **Embedding Model**: `all-MiniLM-L6-v2` (`sentence-transformers`)
+- **Embedding Model**: `all-MiniLM-L6-v2` via ChromaDB ONNX runtime (lightweight, optimized for 512 MB instances)
 - **Vector Dimension**: 384 dimensions (dense float32 vectors)
 
 #### Vector Document Types
@@ -376,7 +376,7 @@ curl -X POST http://localhost:8000/chat \
 - **No real-time data**: Does not connect to live environmental monitoring systems.
 - **Single-user sessions**: Conversation state is stored in memory; restarting the backend clears all conversations.
 - **No authentication**: The API is open. Add authentication for production use.
-- **Embedding model**: Uses `all-MiniLM-L6-v2` (small but fast). Larger models may improve retrieval quality.
+- **Embedding model**: Uses `all-MiniLM-L6-v2` via ONNX runtime (lightweight and optimized for 512 MB instances).
 - **Gemini rate limits**: Subject to Google Gemini API rate limits and quotas.
 
 ## Extending the Knowledge Base
