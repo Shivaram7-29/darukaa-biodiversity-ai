@@ -11,7 +11,7 @@ class EnvironmentalInput:
     """Structured environmental data from the user."""
     soil_organic_carbon: float | None = None  # percent
     soil_ph: float | None = None
-    soil_moisture: float | None = None  # percent field capacity
+    soil_moisture: float | None = None  # percent
     rainfall: float | None = None  # mm/year
     temperature: float | None = None  # Celsius
     land_use: str | None = None  # e.g., "rice monoculture", "agroforestry"
@@ -114,9 +114,9 @@ def assess_environmental_conditions(env_input: EnvironmentalInput) -> dict:
         provided.append("soil_moisture")
         sm = env_input.soil_moisture
         if sm < THRESHOLDS["soil_moisture"]["wilting"]:
-            concerns.append(f"CRITICAL: Soil moisture ({sm}% FC) is at or below wilting point. Plants are under severe water stress.")
+            concerns.append(f"CRITICAL: Soil moisture ({sm}%) indicates severe water limitation/stress.")
         elif sm < THRESHOLDS["soil_moisture"]["stress"]:
-            concerns.append(f"WARNING: Soil moisture ({sm}% FC) indicates water stress for most crops.")
+            concerns.append(f"WARNING: Soil moisture ({sm}%) indicates water limitation/stress for most crops.")
     else:
         missing.append("soil_moisture")
 
@@ -320,7 +320,7 @@ def assess_environmental_conditions(env_input: EnvironmentalInput) -> dict:
             )
         if "rainfall" not in provided and "soil_moisture" not in provided:
             clarifying_questions.append(
-                "What is your annual rainfall (mm) or current soil moisture level (% FC)? (Determines whether crop and soil management is governed by acute water deficit)."
+                "What is your annual rainfall (mm) or current soil moisture level (%)? (Determines whether crop and soil management is governed by acute water deficit)."
             )
         if "land_use" not in provided:
             clarifying_questions.append(
@@ -349,7 +349,7 @@ def build_environmental_context(env_input: EnvironmentalInput, assessment: dict)
         data_map = {
             "soil_organic_carbon": f"Soil Organic Carbon: {env_input.soil_organic_carbon}%",
             "soil_ph": f"Soil pH: {env_input.soil_ph}",
-            "soil_moisture": f"Soil Moisture: {env_input.soil_moisture}% of field capacity",
+            "soil_moisture": f"Soil Moisture: {env_input.soil_moisture}%",
             "rainfall": f"Annual Rainfall: {env_input.rainfall} mm/year",
             "temperature": f"Temperature: {env_input.temperature}°C",
             "land_use": f"Land Use: {env_input.land_use}",
