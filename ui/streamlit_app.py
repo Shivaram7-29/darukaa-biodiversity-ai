@@ -4,6 +4,7 @@ Streamlit frontend for the Darukaa.Earth Biodiversity Intelligence Chatbot.
 
 import os
 import json
+import time
 import streamlit as st
 import requests
 import uuid
@@ -27,12 +28,17 @@ if "show_env_panel" not in st.session_state:
 
 
 def check_api_health() -> bool:
-    """Check if the FastAPI backend is running."""
-    try:
-        resp = requests.get(f"{API_URL}/health", timeout=5)
-        return resp.status_code == 200
-    except requests.ConnectionError:
-        return False
+    """Check if the FastAPI backend is running, handling cold starts with timeout and retry."""
+    for attempt in range(2):
+        try:
+            resp = requests.get(f"{API_URL}/health", timeout=30)
+            return resp.status_code == 200
+        except requests.RequestException:
+            if attempt == 0:
+                time.sleep(1)
+                continue
+            return False
+    return False
 
 
 def send_message(message: str, env_data: dict | None = None) -> dict | None:
